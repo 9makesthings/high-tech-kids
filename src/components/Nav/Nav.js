@@ -21,35 +21,111 @@ const styles = theme => ({
   },
   title: {
     flexGrow: 1,
+    color: 'white',
+    fontFamily: 'Fredoka One',
   },
   button: {
     marginRight: 200,
+  },
+  link: {
+    fontSize: 10,
+    margin: theme.spacing(1),
+    color: 'white',
+  },
+  activeLink: {
+    color: '#f89829',
+  },
+  menu: {
+    height: 10,
   }
 })
 
 
 const Nav = (props) => (
   <div className="root">
-    <AppBar>
+    <AppBar className={styles.menu} >
       <Toolbar>
         <Grid
-          justify="space-between" // Add it here :)
+          justify="space-between"
           container
           spacing={24}
+          className={styles.root}
         >
+
           {/* <IconButton edge="start" className={styles.menuButton} color="inherit" aria-label="Menu">
           <MenuIcon/>
            </IconButton> */}
+
           <Grid item>
-            <Link to="/home">
-              <Typography variant="h6" edge="start" className={styles.title}>
+            <Link to="/home" style={{ textDecoration: 'none' }} >
+              <Typography variant="h4" className={styles.title}>
                 Mission Control
-          </Typography>
+              </Typography>
             </Link>
           </Grid>
+
           <Grid item>
             {props.user.id && (
               <LogOutButton />
+            )}
+
+            {/* COACH */}
+            {props.user.security_clearance === 2 && (
+              <>
+                <Typography variant="h6" className={styles.link}>
+                  <Link className={props.location.pathname === '/missions' ? 
+                        styles.activeLink : styles.link } to="/missions"
+                        style={{ textDecoration: 'none' }} >
+                      View Missions
+                  </Link>
+
+                  <Link className={props.location.pathname === '/coach/teams' ? 
+                        styles.activeLink : styles.link } to="/coach/teams"
+                        style={{ textDecoration: 'none' }} >
+                    View Teams
+                  </Link>
+                </Typography>
+              </>
+            )}
+
+            {/* TEAM w/o access */}
+            {props.user.security_clearance === 3 && (
+              <>
+                <Link className={props.location.pathname === '/missions' ? 
+                      'active nav-link' : 'nav-link'} to="/missions"
+                      style={{ textDecoration: 'none' }} >
+                  View Missions
+                </Link>
+
+                <Link className={props.location.pathname === '/history' ? 
+                      'active nav-link' : 'nav-link'} to="/history"
+                      style={{ textDecoration: 'none' }} >
+                  View Runs
+                </Link>
+              </>
+            )}
+
+            {/* TEAM W/access */}
+            {props.user.security_clearance === 4 && (
+              <>
+                <Link className={props.location.pathname === '/missions' ? 
+                      'active nav-link' : 'nav-link'} to="/missions"
+                      style={{ textDecoration: 'none' }} >
+                  View Missions
+                </Link>
+
+                <Link className={props.location.pathname === '/history' ? 
+                      'active nav-link' : 'nav-link'} to="/history"
+                      style={{ textDecoration: 'none' }} >
+                  View Runs
+                </Link>
+
+                <Link className={props.location.pathname === '/practice-run' ? 
+                      'active nav-link' : 'nav-link'} to="/practice-run"
+                      style={{ textDecoration: 'none' }} >
+                  Create Run
+                </Link>
+              </>
             )}
           </Grid>
         </Grid>
@@ -58,11 +134,6 @@ const Nav = (props) => (
   </div>
 );
 
-// Instead of taking everything from state, we just want the user
-// object to determine if they are logged in
-// if they are logged in, we show them a few more links 
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({ user }) => ({ user });
 const mapStateToProps = state => ({
   user: state.user,
 });
