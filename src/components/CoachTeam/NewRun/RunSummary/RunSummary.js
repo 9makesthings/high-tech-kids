@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import queryString from 'query-string';
+// import queryString from 'query-string';
 
 //----Material UI----
 import PropTypes from 'prop-types';

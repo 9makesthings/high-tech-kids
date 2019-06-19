@@ -5,7 +5,7 @@ import TeamMember from './TeamMember';
 //----Material UI----
 import PropTypes from 'prop-types';
 import { withStyles, TextField } from '@material-ui/core';
-import Paper from '@material-ui/core/Paper';
+// import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -178,7 +178,7 @@ class AddTeam extends Component {
                     </TableBody>
                 </Table>
                 <Grid item>
-                    <Paper className={classes.paper}>
+                    <div className={classes.paper}>
                     <Typography variant="h5">Add Member</Typography>
                     <TextField
                         type="text"
@@ -197,7 +197,7 @@ class AddTeam extends Component {
                         Add Teammate
                     </Button>
                     
-                    </Paper>
+                    </div>
                 </Grid>
                 <Button 
                     variant="contained"

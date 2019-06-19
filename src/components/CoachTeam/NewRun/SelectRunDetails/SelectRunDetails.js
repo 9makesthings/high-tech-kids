@@ -6,7 +6,7 @@ import qs from 'query-string';
 //----Material UI----
 import PropTypes from 'prop-types';
 import { withStyles, TextField } from '@material-ui/core';
-import Paper from '@material-ui/core/Paper';
+// import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -191,7 +191,7 @@ class SelectRunDetails extends Component {
         return (
             <Grid item>
                 <form>
-                    <Paper className={classes.paper}>
+                    <div className={classes.paper}>
                         <Typography variant="h4">Create Run Name</Typography>
                         <TextField
                             type='text'
@@ -201,8 +201,8 @@ class SelectRunDetails extends Component {
                             required
                             onChange={this.missionHandleChangeFor}
                         />
-                    </Paper>
-                    <Paper className={classes.paper}>
+                    </div>
+                    <div className={classes.paper}>
                         <Typography variant="h4">Select Missions</Typography>
                         <div className='mission-selection'>
                             {missionList}
@@ -213,7 +213,7 @@ class SelectRunDetails extends Component {
                             color="primary"
                             onClick={() => { this.selectAllMissions(this.props.reduxState.missions) }}>{this.state.newRun.allSelected === false ? 'Select All Missions' : 'Deselect All Missions'}
                         </Button>
-                    </Paper>
+                    </div>
                 </form>
             </Grid>
         )
@@ -225,7 +225,7 @@ class SelectRunDetails extends Component {
 
         return (
             <Grid item>
-                <Paper className={classes.paper}>
+                <div className={classes.paper}>
                     <Typography variant="h4">{this.props.reduxState.selectedMissions.runName}</Typography>
                     <form>
                         <Typography variant="h5">Driver:</Typography>
@@ -301,7 +301,7 @@ class SelectRunDetails extends Component {
                         >Start
                     </Button>
                     </form>
-                </Paper>
+                </div>
             </Grid>
         )
     }

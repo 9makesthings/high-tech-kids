@@ -11,9 +11,6 @@ const theme = createMuiTheme({
       'Nunito',
     ],
   },
-  h4: {
-    fontFamily: 'Fredoka One',
-  },
 });
 
 export default theme;

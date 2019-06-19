@@ -7,7 +7,7 @@ import RunTimer from './RunTimer';
 //----Material UI----
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core';
-import Paper from '@material-ui/core/Paper';
+// import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -189,7 +189,7 @@ class RunScoring extends Component {
             this.state.penalties.map((penalty, i) => {
                 return (
                     <Grid item key={penalty.id}>
-                        <Paper className={classes.paper}>
+                        <div className={classes.paper}>
                             <Typography variant="h4">{penalty.name}</Typography>
                             <Typography variant="h6">Count: {penalty.count}</Typography>
                             <Button
@@ -207,7 +207,7 @@ class RunScoring extends Component {
                                 onClick={() => { this.undoOnClick(i) }}
                             >Undo<FaUndo />
                             </Button>
-                        </Paper>
+                        </div>
                     </Grid>
                 )
             })

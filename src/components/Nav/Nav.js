@@ -10,14 +10,17 @@ import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
+import { withStyles} from '@material-ui/core';
 
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    // padding: theme.spacing.unit,
+    // margin: theme.spacing.unit,
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    // marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
@@ -29,21 +32,21 @@ const styles = theme => ({
   },
   link: {
     fontSize: 10,
-    margin: theme.spacing(1),
+    // margin: theme.spacing(1),
     color: 'white',
   },
   activeLink: {
     color: '#f89829',
   },
   menu: {
-    height: 10,
+    padding: 10,
   }
 })
 
 
 const Nav = (props) => (
   <div className="root">
-    <AppBar className={styles.menu} >
+    <AppBar className={styles.root} >
       <Toolbar>
         <Grid
           justify="space-between"
@@ -57,7 +60,7 @@ const Nav = (props) => (
            </IconButton> */}
 
           <Grid item>
-            <Link to="/home" style={{ textDecoration: 'none' }} >
+            <Link to="/home" style={{ textDecoration: 'none', fontFamily: 'Fredoka One' }} >
               <Typography variant="h4" className={styles.title}>
                 Mission Control
               </Typography>
@@ -142,4 +145,4 @@ Nav.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default connect(mapStateToProps)(withRouter(Nav));
+export default connect(mapStateToProps)(withRouter(withStyles(styles)(Nav)));

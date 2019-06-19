@@ -4,7 +4,7 @@ import Timer from 'react-compound-timer';
 //----Material UI----
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core';
-import Paper from '@material-ui/core/Paper';
+// import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
@@ -63,7 +63,7 @@ class RunTimer extends Component {
         > 
           {({ start, resume, pause, stop, reset, timerState }) => (
             <React.Fragment>
-            <Paper className={classes.paper}> 
+            <div className={classes.paper}> 
               <div>
               <Typography variant="h3">
                 {/* ensures formatting is always 2 digits on either side of colon */}
@@ -84,7 +84,7 @@ class RunTimer extends Component {
                   className={classes.button}
                   onClick={ stop } >Stop Timer
                 </Button>
-              </Paper>
+              </div>
             </React.Fragment>
           )}
         </Timer>
