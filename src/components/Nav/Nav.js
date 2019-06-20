@@ -16,11 +16,11 @@ import { withStyles} from '@material-ui/core';
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    // padding: theme.spacing.unit,
-    // margin: theme.spacing.unit,
+    padding: theme.spacing.unit,
+    margin: theme.spacing.unit,
   },
   menuButton: {
-    // marginRight: theme.spacing(2),
+    marginRight: theme.spacing.unit,
   },
   title: {
     flexGrow: 1,
@@ -32,7 +32,7 @@ const styles = theme => ({
   },
   link: {
     fontSize: 10,
-    // margin: theme.spacing(1),
+    margin: theme.spacing.unit,
     color: 'white',
   },
   activeLink: {
@@ -60,7 +60,7 @@ const Nav = (props) => (
            </IconButton> */}
 
           <Grid item>
-            <Link to="/home" style={{ textDecoration: 'none', fontFamily: 'Fredoka One' }} >
+            <Link to="/home" style={{ textDecoration: 'none' }} >
               <Typography variant="h4" className={styles.title}>
                 Mission Control
               </Typography>
