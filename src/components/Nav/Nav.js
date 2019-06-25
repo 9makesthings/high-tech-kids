@@ -60,34 +60,35 @@ const Nav = (props) => (
            </IconButton> */}
 
           <Grid item>
-            <Link to="/home" style={{ textDecoration: 'none' }} >
-              <Typography variant="h4" className={styles.title}>
+            <Link to="/home" style={{ textDecoration: 'none', color: 'white' }} >
+              <Typography variant="h5" className={styles.title}>
                 Mission Control
               </Typography>
             </Link>
           </Grid>
 
-          <Grid item>
-            {props.user.id && (
-              <LogOutButton />
-            )}
-
             {/* COACH */}
             {props.user.security_clearance === 2 && (
               <>
+              <Grid item>
                 <Typography variant="h6" className={styles.link}>
                   <Link className={props.location.pathname === '/missions' ? 
                         styles.activeLink : styles.link } to="/missions"
-                        style={{ textDecoration: 'none' }} >
+                        style={{ textDecoration: 'none', color: 'white' }} >
                       View Missions
                   </Link>
+                </Typography>
+              </Grid>
 
+              <Grid item>
+                <Typography variant="h6" className={styles.link}>
                   <Link className={props.location.pathname === '/coach/teams' ? 
                         styles.activeLink : styles.link } to="/coach/teams"
-                        style={{ textDecoration: 'none' }} >
+                        style={{ textDecoration: 'none', color: 'white' }} >
                     View Teams
                   </Link>
                 </Typography>
+              </Grid>
               </>
             )}
 
@@ -130,7 +131,13 @@ const Nav = (props) => (
                 </Link>
               </>
             )}
+
+          <Grid item>
+            {props.user.id && (
+              <LogOutButton />
+            )}
           </Grid>
+
         </Grid>
       </Toolbar>
     </AppBar>
